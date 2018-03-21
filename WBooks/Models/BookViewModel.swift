@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+import Utils
 
 class BookViewModel {
     fileprivate var _book: Book
@@ -25,6 +27,23 @@ class BookViewModel {
     
     var image: URL? {
         return _book.image
+    }
+    
+    func downloadImage(closure: @escaping (UIImage) -> Void) {
+        guard let url = _book.image else { return }
+        
+        let imageFetcher = ImageFetcher()
+        
+        imageFetcher.fetchImage(url).startWithResult { result in
+            switch result {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    closure(image)
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
 }

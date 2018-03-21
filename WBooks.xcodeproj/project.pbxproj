@@ -20,6 +20,8 @@
 		9D6E405B1CB1B93A008CE558 /* Result.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D6E40561CB1B93A008CE558 /* Result.framework */; };
 		AE2DC4A6205C579500ABF79E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2DC4A5205C579500ABF79E /* UIColorExtension.swift */; };
 		AE2DC4A8205C582F00ABF79E /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2DC4A7205C582F00ABF79E /* UIFontExtension.swift */; };
+		AE379C7D2061AD5A006EFE1A /* Utils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE379C7C2061AD59006EFE1A /* Utils.framework */; };
+		AE591AB12062D24A00758AD1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AE591AB02062D24A00758AD1 /* Localizable.strings */; };
 		AE8843E1206043BE0077AA2C /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE8843E0206043BE0077AA2C /* BookViewModel.swift */; };
 		AE8A9B6E205C2973007F274F /* LibraryCellView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE8A9B6D205C2973007F274F /* LibraryCellView.xib */; };
 		AEA67923205B1D3900200EFB /* LibraryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA67922205B1D3900200EFB /* LibraryCellView.swift */; };
@@ -97,6 +99,8 @@
 		9D6E40561CB1B93A008CE558 /* Result.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Result.framework; path = Carthage/Build/iOS/Result.framework; sourceTree = "<group>"; };
 		AE2DC4A5205C579500ABF79E /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		AE2DC4A7205C582F00ABF79E /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		AE379C7C2061AD59006EFE1A /* Utils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Utils.framework; path = Carthage/Build/iOS/Utils.framework; sourceTree = "<group>"; };
+		AE591AB02062D24A00758AD1 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		AE8843E0206043BE0077AA2C /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		AE8A9B6D205C2973007F274F /* LibraryCellView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LibraryCellView.xib; sourceTree = "<group>"; };
 		AEA67922205B1D3900200EFB /* LibraryCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryCellView.swift; sourceTree = "<group>"; };
@@ -150,6 +154,7 @@
 				CED934881E8466A60017CF96 /* Core.framework in Frameworks */,
 				CED934891E8466A60017CF96 /* ReactiveSwift.framework in Frameworks */,
 				9D6E405A1CB1B93A008CE558 /* ReactiveCocoa.framework in Frameworks */,
+				AE379C7D2061AD5A006EFE1A /* Utils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,17 +201,18 @@
 		9D1575031CB1B27500EA395E /* WBooks */ = {
 			isa = PBXGroup;
 			children = (
-				AECB8C9820600F0800FA9B65 /* Repositories */,
-				AECB8C8220600C5800FA9B65 /* Models */,
 				AECB8C7F206009F900FA9B65 /* Bootstrappers */,
+				CEB934DE1D21A44700DF75C2 /* ConfigurationFiles */,
 				AE2DC4A4205C578400ABF79E /* Extensions */,
+				AECB8C8220600C5800FA9B65 /* Models */,
+				AECB8C9820600F0800FA9B65 /* Repositories */,
 				AEFED309205B10AC002D1FAF /* Screens */,
 				E1530D9A1ED378F9002A9002 /* Services */,
-				CEB934DE1D21A44700DF75C2 /* ConfigurationFiles */,
 				9D1575041CB1B27500EA395E /* AppDelegate.swift */,
 				9D15750B1CB1B27500EA395E /* Assets.xcassets */,
 				9D1575101CB1B27500EA395E /* Info.plist */,
 				CEB934DC1D21992100DF75C2 /* Environment.swift */,
+				AE591AB02062D24A00758AD1 /* Localizable.strings */,
 			);
 			path = WBooks;
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 		9D6E405F1CB1BA21008CE558 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE379C7C2061AD59006EFE1A /* Utils.framework */,
 				AECB8C8D20600E0300FA9B65 /* Alamofire.framework */,
 				AECB8C8820600E0300FA9B65 /* AlamofireNetworkActivityIndicator.framework */,
 				AECB8C8E20600E0300FA9B65 /* AlamofireNetworkActivityLogger.framework */,
@@ -449,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEFED30B205B12B8002D1FAF /* LibraryView.xib in Resources */,
+				AE591AB12062D24A00758AD1 /* Localizable.strings in Resources */,
 				AE8A9B6E205C2973007F274F /* LibraryCellView.xib in Resources */,
 				9D15750C1CB1B27500EA395E /* Assets.xcassets in Resources */,
 			);
@@ -493,6 +501,7 @@
 				"$(SRCROOT)/Carthage/Build/iOS/AlamofireNetworkActivityLogger.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Runes.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ReactiveMapKit.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Utils.framework",
 			);
 			name = Carthage;
 			outputPaths = (

@@ -58,9 +58,8 @@ fileprivate extension NetworkingBootstrapper {
     }
 
     func injectCurrentUserFetcher() {
-        let currentUser = User()
-        
         if !_sessionManager.isLoggedIn {
+            let currentUser = User()
             _sessionManager.login(user: currentUser)
         } else {
             print("User is already logged")

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  LibraryViewController.swift
 //  WBooks
 //
 //  Created by Guido Marucci Blas on 4/3/16.
@@ -8,6 +8,7 @@
 
 import UIKit
 import Core
+import Utils
 
 class LibraryViewController: UIViewController {
 
@@ -33,13 +34,13 @@ class LibraryViewController: UIViewController {
         
         _view.tableView.delegate = self
         _view.tableView.dataSource = self
-        _view.tableView.register(UINib(nibName: "LibraryCellView", bundle: Bundle.main), forCellReuseIdentifier: "LibraryCellView")
+        _view.tableView.register(cell: LibraryCellView.self)
         
         setupBindings()
     }
 
     fileprivate func setupBindings() {
-        _viewModel.books.producer.startWithResult { _ in
+        _viewModel.books.producer.startWithResult { [unowned self] _ in
             self._view.tableView.reloadData()
         }
     }
@@ -54,10 +55,9 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeue(cell: LibraryCellView.self, for: indexPath)!
         
-        // swiftlint:disable:next force_cast
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LibraryCellView", for: indexPath) as! LibraryCellView
-        cell.setCellData(bookVM: _viewModel.books.value[indexPath.row])
+        cell.setCellData(bookViewModel: _viewModel.books.value[indexPath.row])
         
         return cell
     }

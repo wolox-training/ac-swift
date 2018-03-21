@@ -1,5 +1,5 @@
 //
-//  TableView.swift
+//  LibraryView.swift
 //  WBooks
 //
 //  Created by Ariel Cid on 3/15/18.
@@ -18,10 +18,7 @@ class LibraryView: UIView, NibLoadable {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        tableView.estimatedRowHeight = 90
-        tableView.rowHeight = 90
-        
-        tableViewLabel.text = "LIBRARY"
+        tableViewLabel.text = "library.nav-bar.title".localized()
         tableViewLabel.textColor = .white
         tableViewLabel.font = .systemBold()
         tableViewLabel.font.withSize(17)

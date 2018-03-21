@@ -9,13 +9,8 @@
 import Foundation
 import UIKit
 
-extension UIColor {
-    
-    static func fontDarkGray() -> UIColor {
-        return .darkGray
-    }
-    
-    static func bgLightBlue() -> UIColor {
+extension UIColor {    
+    static func polar() -> UIColor {
         return UIColor(red: 0.92, green: 0.96, blue: 0.98, alpha: 1)
     }
 }

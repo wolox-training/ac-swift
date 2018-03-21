@@ -1,5 +1,5 @@
 //
-//  CellView.swift
+//  LibraryCellView.swift
 //  WBooks
 //
 //  Created by Ariel Cid on 3/15/18.
@@ -10,13 +10,11 @@ import Foundation
 import UIKit
 import Core
 
-class LibraryCellView: UITableViewCell {
+class LibraryCellView: UITableViewCell, NibLoadable {
     
     @IBOutlet weak var bookCover: UIImageView!
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookAuthor: UILabel!
-    
-    var imageFetchingTask: URLSessionDataTask? = .none
     
     override internal func awakeFromNib() {
         super.awakeFromNib()
@@ -24,35 +22,10 @@ class LibraryCellView: UITableViewCell {
         setupUI()
     }
     
-    func setCellData(bookVM: BookViewModel) {
-        bookTitle.text = bookVM.title
-        bookAuthor.text = bookVM.author
-        configureImage(urlBook: bookVM.image)
-    }
-    
-    override func prepareForReuse() {
-        imageFetchingTask?.cancel()
-        imageFetchingTask = .none
-    }
-    
-    func configureImage(urlBook: URL?) {
-        guard let url = urlBook else { return }
-        imageFetchingTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
-            if error != nil {
-                print("Failed fetching image \(error.debugDescription)")
-                return
-            }
-            
-            guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                print("Not a proper HTTPURLResponse or statusCode")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.bookCover.image = UIImage(data: data!)
-            }
-        }
-        imageFetchingTask?.resume()
+    func setCellData(bookViewModel: BookViewModel) {
+        bookTitle.text = bookViewModel.title
+        bookAuthor.text = bookViewModel.author
+        bookViewModel.downloadImage { self.bookCover.image = $0 }
     }
     
 }
@@ -65,10 +38,10 @@ fileprivate extension LibraryCellView {
  
     func setupBook() {
         bookTitle.font = .systemBold(size: 17)
-        bookTitle.textColor = .fontDarkGray()
+        bookTitle.textColor = .darkGray
         
         bookAuthor.font.withSize(15)
-        bookAuthor.textColor = .fontDarkGray()
+        bookAuthor.textColor = .darkGray
     }
     
 }
