@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  WBooks
+
+  Created by Ariel Cid on 3/21/18.
+  Copyright © 2018 Wolox. All rights reserved.
+*/
+
+"library.nav-bar.title" = "LIBRARY";

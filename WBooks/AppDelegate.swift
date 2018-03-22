@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Networking
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,8 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          *
          */
         
+        NetworkingBootstrapper.shared.bootstrap()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ViewController()
+        window?.rootViewController = LibraryViewController(viewModel: LibraryViewModel())
         window?.makeKeyAndVisible()
         
         return true

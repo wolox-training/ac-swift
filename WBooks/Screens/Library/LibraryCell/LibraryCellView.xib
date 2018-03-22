@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="90" id="R9t-VK-eZO" customClass="LibraryCellView" customModule="WBooks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="335" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="R9t-VK-eZO" id="3oz-Xe-aIX">
+                <rect key="frame" x="0.0" y="0.0" width="335" height="89.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSa-d5-ZLu" userLabel="Book Author">
+                        <rect key="frame" x="90" y="38.5" width="39.5" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ca-uT-1qn">
+                        <rect key="frame" x="90" y="15" width="33.5" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6y4-42-Qzu">
+                        <rect key="frame" x="30" y="15" width="40" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="P5l-Ux-53m"/>
+                            <constraint firstAttribute="height" constant="60" id="Yh0-TF-dSi"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7ca-uT-1qn" firstAttribute="top" secondItem="6y4-42-Qzu" secondAttribute="top" id="9wv-V5-tOP"/>
+                    <constraint firstItem="6y4-42-Qzu" firstAttribute="leading" secondItem="3oz-Xe-aIX" secondAttribute="leading" constant="30" id="BUS-h7-AHQ"/>
+                    <constraint firstItem="FSa-d5-ZLu" firstAttribute="top" secondItem="7ca-uT-1qn" secondAttribute="bottom" constant="3" id="DX4-3z-kIj"/>
+                    <constraint firstAttribute="bottom" secondItem="6y4-42-Qzu" secondAttribute="bottom" constant="15" id="IqL-Lx-lRc"/>
+                    <constraint firstItem="6y4-42-Qzu" firstAttribute="top" secondItem="3oz-Xe-aIX" secondAttribute="top" constant="15" id="M8o-lS-YbC"/>
+                    <constraint firstItem="6y4-42-Qzu" firstAttribute="centerY" secondItem="3oz-Xe-aIX" secondAttribute="centerY" id="jAm-c7-Kx0"/>
+                    <constraint firstItem="FSa-d5-ZLu" firstAttribute="leading" secondItem="6y4-42-Qzu" secondAttribute="trailing" constant="20" id="r6a-ya-B0x"/>
+                    <constraint firstItem="7ca-uT-1qn" firstAttribute="leading" secondItem="6y4-42-Qzu" secondAttribute="trailing" constant="20" id="yuD-VM-nPH"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="bookAuthor" destination="FSa-d5-ZLu" id="oWJ-Uy-lmm"/>
+                <outlet property="bookCover" destination="6y4-42-Qzu" id="3Ro-dN-Krg"/>
+                <outlet property="bookTitle" destination="7ca-uT-1qn" id="0Vq-7a-eHO"/>
+            </connections>
+            <point key="canvasLocation" x="-71.5" y="-28"/>
+        </tableViewCell>
+    </objects>
+</document>
