@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         NetworkingBootstrapper.shared.bootstrap()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = LibraryViewController(viewModel: LibraryViewModel())
+        window?.rootViewController = TabViewController()
         window?.makeKeyAndVisible()
         
         return true

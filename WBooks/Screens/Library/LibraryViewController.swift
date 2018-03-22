@@ -15,8 +15,8 @@ class LibraryViewController: UIViewController {
     fileprivate let _view: LibraryView = LibraryView.loadFromNib()!
     fileprivate let _viewModel: LibraryViewModel
     
-    init(viewModel: LibraryViewModel) {
-        _viewModel = viewModel
+    init() {
+        _viewModel = LibraryViewModel()
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -37,12 +37,37 @@ class LibraryViewController: UIViewController {
         _view.tableView.register(cell: LibraryCellView.self)
         
         setupBindings()
+        setupNavBar()
     }
 
     fileprivate func setupBindings() {
         _viewModel.books.producer.startWithResult { [unowned self] _ in
             self._view.tableView.reloadData()
         }
+    }
+    
+    private func setupNavBar() {
+        title = "library.nav-bar.title".localized()
+        
+        let navBar = navigationController?.navigationBar
+        navBar?.shadowImage = UIImage()
+        navBar?.setBackgroundImage(UIImage(), for: .default)
+        navBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.systemBold().withSize(17)]  // swiftlint:disable:this line_length
+        navBar?.isTranslucent = true
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_search"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightButtonSelector(selector:)))    // swiftlint:disable:this line_length
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_notifications"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftButtonSelector(selector:)))   // swiftlint:disable:this line_length
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+    }
+    
+    @objc func rightButtonSelector(selector: UIBarButtonItem) {
+        print("Search!")
+    }
+    
+    @objc func leftButtonSelector(selector: UIBarButtonItem) {
+        print("Notify!")
     }
     
 }

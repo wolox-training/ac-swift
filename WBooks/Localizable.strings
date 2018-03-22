@@ -7,3 +7,13 @@
 */
 
 "library.nav-bar.title" = "LIBRARY";
+"library.tab-bar.title" = "Library";
+
+"wishlist.nav-bar.title" = "WISHLIST";
+"wishlist.tab-bar.title" = "Wishlist";
+
+"suggest.nav-bar.title" = "SUGGEST";
+"suggest.tab-bar.title" = "Suggest";
+
+"rentals.nav-bar.title" = "RENTALS";
+"rentals.tab-bar.title" = "Rentals";

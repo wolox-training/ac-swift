@@ -13,14 +13,11 @@ import Core
 class LibraryView: UIView, NibLoadable {
     
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var tableViewLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        tableViewLabel.text = "library.nav-bar.title".localized()
-        tableViewLabel.textColor = .white
-        tableViewLabel.font = .systemBold()
-        tableViewLabel.font.withSize(17)
+        backgroundColor = .polar()
+        tableView.backgroundColor = .polar()
     }
 }
