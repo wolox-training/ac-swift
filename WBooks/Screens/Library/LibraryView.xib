@@ -16,73 +16,32 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z4x-1a-Wni" userLabel="Background">
-                    <rect key="frame" x="0.0" y="102" width="375" height="565"/>
-                    <subviews>
-                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="5" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bvG-Gk-eex">
-                            <rect key="frame" x="20" y="16" width="335" height="549"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </tableView>
-                    </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="bvG-Gk-eex" secondAttribute="trailing" constant="20" id="3cF-e7-vtf"/>
-                        <constraint firstItem="bvG-Gk-eex" firstAttribute="top" secondItem="z4x-1a-Wni" secondAttribute="top" constant="16" id="3uI-7w-3pq"/>
-                        <constraint firstAttribute="bottom" secondItem="bvG-Gk-eex" secondAttribute="bottom" id="JhZ-aR-Hpr"/>
-                        <constraint firstItem="bvG-Gk-eex" firstAttribute="leading" secondItem="z4x-1a-Wni" secondAttribute="leading" constant="20" id="tVS-5Q-CI4"/>
-                    </constraints>
-                </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bc_nav_bar.png" translatesAutoresizingMaskIntoConstraints="NO" id="etP-tg-r9B">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bc_nav_bar" translatesAutoresizingMaskIntoConstraints="NO" id="K5Y-Lu-Gch">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPF-CF-UgK" userLabel="View Label">
-                    <rect key="frame" x="166" y="40" width="42" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_search.png" translatesAutoresizingMaskIntoConstraints="NO" id="0mf-fb-JHO">
-                    <rect key="frame" x="343" y="40.5" width="20" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="20" id="otB-yt-pgS"/>
-                        <constraint firstAttribute="width" constant="20" id="vEF-21-D4K"/>
-                    </constraints>
-                </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_notifications.png" translatesAutoresizingMaskIntoConstraints="NO" id="C08-ch-0mN">
-                    <rect key="frame" x="12" y="40.5" width="20" height="20"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="20" id="O3l-A3-6Zd"/>
-                        <constraint firstAttribute="height" constant="20" id="wZl-Ab-K6c"/>
-                    </constraints>
-                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" sectionIndexMinimumDisplayRowCount="5" rowHeight="90" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bvG-Gk-eex">
+                    <rect key="frame" x="20" y="119" width="335" height="538"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="C08-ch-0mN" firstAttribute="centerY" secondItem="iPF-CF-UgK" secondAttribute="centerY" id="15s-oK-ccC"/>
-                <constraint firstItem="z4x-1a-Wni" firstAttribute="top" secondItem="etP-tg-r9B" secondAttribute="bottom" id="JyD-kR-Omt"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="z4x-1a-Wni" secondAttribute="trailing" id="Y4x-Pl-yiS"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0mf-fb-JHO" secondAttribute="trailing" constant="12" id="bAS-s1-qWS"/>
-                <constraint firstItem="iPF-CF-UgK" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="20" id="dGn-Od-p37"/>
-                <constraint firstItem="iPF-CF-UgK" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="e5I-1d-mji"/>
-                <constraint firstItem="C08-ch-0mN" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="gVE-US-m4k"/>
-                <constraint firstItem="z4x-1a-Wni" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="hfa-ge-lCR"/>
-                <constraint firstItem="etP-tg-r9B" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kQl-YR-N1m"/>
-                <constraint firstItem="etP-tg-r9B" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="r2e-gw-dJb"/>
-                <constraint firstItem="z4x-1a-Wni" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="vRZ-ZT-XB8"/>
-                <constraint firstItem="0mf-fb-JHO" firstAttribute="centerY" secondItem="iPF-CF-UgK" secondAttribute="centerY" id="viY-SG-Z0g"/>
-                <constraint firstAttribute="trailing" secondItem="etP-tg-r9B" secondAttribute="trailing" id="zPK-EP-Mx8"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bvG-Gk-eex" secondAttribute="bottom" constant="10" id="8rE-lg-kZh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="K5Y-Lu-Gch" secondAttribute="trailing" id="Csd-fq-MJr"/>
+                <constraint firstItem="K5Y-Lu-Gch" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LkR-t2-QEY"/>
+                <constraint firstItem="bvG-Gk-eex" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="bGy-hb-obb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="bvG-Gk-eex" secondAttribute="trailing" constant="20" id="ms2-Gs-K5a"/>
+                <constraint firstItem="K5Y-Lu-Gch" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="vJe-qg-LoG"/>
+                <constraint firstItem="bvG-Gk-eex" firstAttribute="top" secondItem="K5Y-Lu-Gch" secondAttribute="bottom" constant="17" id="vwW-eg-gSD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="tableView" destination="bvG-Gk-eex" id="0rH-Aj-jUN"/>
-                <outlet property="tableViewLabel" destination="iPF-CF-UgK" id="VmZ-Hu-Z0c"/>
+                <outlet property="tableView" destination="bvG-Gk-eex" id="W3Z-bY-MVA"/>
             </connections>
             <point key="canvasLocation" x="-88.5" y="52.5"/>
         </view>
     </objects>
     <resources>
-        <image name="bc_nav_bar.png" width="375" height="102"/>
-        <image name="ic_notifications.png" width="20" height="20"/>
-        <image name="ic_search.png" width="20" height="20"/>
+        <image name="bc_nav_bar" width="375" height="102"/>
     </resources>
 </document>

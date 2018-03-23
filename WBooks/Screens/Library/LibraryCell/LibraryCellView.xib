@@ -18,41 +18,54 @@
                 <rect key="frame" x="0.0" y="0.0" width="335" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSa-d5-ZLu" userLabel="Book Author">
-                        <rect key="frame" x="90" y="38.5" width="39.5" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ca-uT-1qn">
-                        <rect key="frame" x="90" y="15" width="33.5" height="20.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6y4-42-Qzu">
-                        <rect key="frame" x="30" y="15" width="40" height="60"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K89-un-dSY">
+                        <rect key="frame" x="0.0" y="5" width="335" height="79.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ca-uT-1qn">
+                                <rect key="frame" x="90" y="10" width="33.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6y4-42-Qzu">
+                                <rect key="frame" x="30" y="10" width="40" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="P5l-Ux-53m"/>
+                                    <constraint firstAttribute="height" constant="60" id="Yh0-TF-dSi"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSa-d5-ZLu" userLabel="Book Author">
+                                <rect key="frame" x="90" y="33.5" width="39.5" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="P5l-Ux-53m"/>
-                            <constraint firstAttribute="height" constant="60" id="Yh0-TF-dSi"/>
+                            <constraint firstItem="6y4-42-Qzu" firstAttribute="centerY" secondItem="K89-un-dSY" secondAttribute="centerY" id="4N5-oy-nlQ"/>
+                            <constraint firstItem="FSa-d5-ZLu" firstAttribute="leading" secondItem="6y4-42-Qzu" secondAttribute="trailing" constant="20" id="Ec3-Ac-AR9"/>
+                            <constraint firstItem="7ca-uT-1qn" firstAttribute="top" secondItem="6y4-42-Qzu" secondAttribute="top" id="GNL-hO-WLs"/>
+                            <constraint firstItem="6y4-42-Qzu" firstAttribute="leading" secondItem="K89-un-dSY" secondAttribute="leading" constant="30" id="Je6-Ra-Xmw"/>
+                            <constraint firstItem="7ca-uT-1qn" firstAttribute="leading" secondItem="6y4-42-Qzu" secondAttribute="trailing" constant="20" id="MqR-1E-ZPM"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7ca-uT-1qn" secondAttribute="trailing" constant="10" id="TgU-c1-9V7"/>
+                            <constraint firstItem="FSa-d5-ZLu" firstAttribute="top" secondItem="7ca-uT-1qn" secondAttribute="bottom" constant="3" id="cwR-Mj-edB"/>
                         </constraints>
-                    </imageView>
+                    </view>
                 </subviews>
+                <color key="backgroundColor" red="0.99591273069381714" green="0.99225050210952759" blue="0.99203115701675415" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                 <constraints>
-                    <constraint firstItem="7ca-uT-1qn" firstAttribute="top" secondItem="6y4-42-Qzu" secondAttribute="top" id="9wv-V5-tOP"/>
-                    <constraint firstItem="6y4-42-Qzu" firstAttribute="leading" secondItem="3oz-Xe-aIX" secondAttribute="leading" constant="30" id="BUS-h7-AHQ"/>
-                    <constraint firstItem="FSa-d5-ZLu" firstAttribute="top" secondItem="7ca-uT-1qn" secondAttribute="bottom" constant="3" id="DX4-3z-kIj"/>
-                    <constraint firstAttribute="bottom" secondItem="6y4-42-Qzu" secondAttribute="bottom" constant="15" id="IqL-Lx-lRc"/>
-                    <constraint firstItem="6y4-42-Qzu" firstAttribute="top" secondItem="3oz-Xe-aIX" secondAttribute="top" constant="15" id="M8o-lS-YbC"/>
-                    <constraint firstItem="6y4-42-Qzu" firstAttribute="centerY" secondItem="3oz-Xe-aIX" secondAttribute="centerY" id="jAm-c7-Kx0"/>
-                    <constraint firstItem="FSa-d5-ZLu" firstAttribute="leading" secondItem="6y4-42-Qzu" secondAttribute="trailing" constant="20" id="r6a-ya-B0x"/>
-                    <constraint firstItem="7ca-uT-1qn" firstAttribute="leading" secondItem="6y4-42-Qzu" secondAttribute="trailing" constant="20" id="yuD-VM-nPH"/>
+                    <constraint firstItem="K89-un-dSY" firstAttribute="leading" secondItem="3oz-Xe-aIX" secondAttribute="leading" id="GZF-nT-Xfl"/>
+                    <constraint firstAttribute="bottom" secondItem="K89-un-dSY" secondAttribute="bottom" constant="5" id="aFx-U0-Pdj"/>
+                    <constraint firstAttribute="trailing" secondItem="K89-un-dSY" secondAttribute="trailing" id="fp1-y7-gNq"/>
+                    <constraint firstItem="K89-un-dSY" firstAttribute="top" secondItem="3oz-Xe-aIX" secondAttribute="top" constant="5" id="nhG-mc-1Ti"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="bookAuthor" destination="FSa-d5-ZLu" id="oWJ-Uy-lmm"/>
-                <outlet property="bookCover" destination="6y4-42-Qzu" id="3Ro-dN-Krg"/>
-                <outlet property="bookTitle" destination="7ca-uT-1qn" id="0Vq-7a-eHO"/>
+                <outlet property="bookAuthor" destination="FSa-d5-ZLu" id="Idp-VA-WR5"/>
+                <outlet property="bookCover" destination="6y4-42-Qzu" id="N5p-Ab-u1T"/>
+                <outlet property="bookTitle" destination="7ca-uT-1qn" id="BeH-EC-2Yj"/>
+                <outlet property="cellSpaceView" destination="K89-un-dSY" id="nGT-Oa-Tfn"/>
             </connections>
             <point key="canvasLocation" x="-71.5" y="-28"/>
         </tableViewCell>
