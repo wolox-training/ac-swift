@@ -89,7 +89,6 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        //  SOMETHING SOMETHING PAGINATION
         if _view.tableView.contentOffset.y + _view.tableView.frame.height + 200 >= _view.tableView.contentSize.height {
             _viewModel.expandBooks()
         }
