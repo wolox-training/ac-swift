@@ -12,22 +12,22 @@ import ReactiveSwift
 import Argo
 import Result
 
-protocol LibraryRepositoryType {
-    
-    func fetchEntities() -> SignalProducer<[Book], RepositoryError>
-    
+protocol LibraryRepositoryType {    
+    func fetchEntities(page: Int) -> SignalProducer<[Book], RepositoryError>
 }
 
 class LibraryRepository: AbstractRepository, LibraryRepositoryType {
     
     private static let EntitiesPath = "books"
     private static let PageKey = "page"
+    private static let PageSize = 10
     
-    public func fetchEntities() -> SignalProducer<[Book], RepositoryError> {
+    public func fetchEntities(page: Int) -> SignalProducer<[Book], RepositoryError> {
+        
         let path = LibraryRepository.EntitiesPath
-        return performRequest(method: .get, path: path) {
+        let parameters = [LibraryRepository.PageKey: page, "amount": LibraryRepository.PageSize]
+        return performRequest(method: .get, path: path, parameters: parameters) {
             decode($0).toResult()
         }
     }
-    
 }

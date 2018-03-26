@@ -38,6 +38,7 @@ class LibraryViewController: UIViewController {
         
         setupBindings()
         setupNavBar()
+        _viewModel.expandBooks()
     }
 
     fileprivate func setupBindings() {
@@ -87,4 +88,9 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if _view.tableView.contentOffset.y + _view.tableView.frame.height + 200 >= _view.tableView.contentSize.height {
+            _viewModel.expandBooks()
+        }
+    }
 }

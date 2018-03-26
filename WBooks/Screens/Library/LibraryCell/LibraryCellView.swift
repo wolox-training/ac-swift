@@ -49,9 +49,7 @@ fileprivate extension LibraryCellView {
  
     func setupBook() {
         bookTitle.font = .systemBold(size: 17)
-        bookTitle.adjustsFontSizeToFitWidth = true
         bookTitle.textColor = .darkGray
-        
         bookAuthor.font.withSize(15)
         bookAuthor.textColor = .darkGray
     }
