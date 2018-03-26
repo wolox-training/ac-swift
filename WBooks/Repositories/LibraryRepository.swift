@@ -24,8 +24,6 @@ class LibraryRepository: AbstractRepository, LibraryRepositoryType {
     
     public func fetchEntities(page: Int) -> SignalProducer<[Book], RepositoryError> {
         
-        print("FETCHING PAGE \(page)")
-        
         let path = LibraryRepository.EntitiesPath
         let parameters = [LibraryRepository.PageKey: page, "amount": LibraryRepository.PageSize]
         return performRequest(method: .get, path: path, parameters: parameters) {
