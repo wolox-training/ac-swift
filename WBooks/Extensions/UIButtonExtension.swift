@@ -14,9 +14,9 @@ extension UIButton {
         let gradient = CAGradientLayer()
         gradient.frame = frame
         gradient.colors = [
-            UIColor(red: 0, green: 0.68, blue: 0.93, alpha: 1).cgColor,
-            UIColor(red: 0.22, green: 0.8, blue: 0.8, alpha: 1).cgColor
-        ]   // TO DO: UICOLORS
+            UIColor.deepSkyBlue().cgColor,
+            UIColor.mediumTurquoise().cgColor
+        ]
         gradient.locations = [0, 1]
         gradient.startPoint = CGPoint(x: 0.06, y: 0.5)
         gradient.endPoint = CGPoint(x: 1, y: 0.5)
