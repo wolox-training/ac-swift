@@ -24,7 +24,7 @@ class TabViewController: UITabBarController {
         
         navigationController?.isNavigationBarHidden = true
         
-        let libraryNavController = UINavigationController(rootViewController: LibraryViewController())
+        let libraryNavController = UINavigationController(rootViewController: BookDetailViewController())
         libraryNavController.title = "library.tab-bar.title".localized()
         libraryNavController.tabBarItem.image = #imageLiteral(resourceName: "ic_library")
         libraryNavController.tabBarItem.selectedImage = #imageLiteral(resourceName: "ic_library_active")

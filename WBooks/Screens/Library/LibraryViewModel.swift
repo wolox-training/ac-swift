@@ -9,27 +9,30 @@
 import Foundation
 import ReactiveSwift
 import Networking
+import Result
 
 class LibraryViewModel {
     
-    let books = MutableProperty<[BookViewModel]>([])
-    var currentPage = 1
+    let books: Property<[BookViewModel]>
     
+    fileprivate let _books = MutableProperty<[BookViewModel]>([])
     fileprivate let _libraryRepository: LibraryRepositoryType
+    fileprivate var _currentPage = 1
     
     init(libraryRepository: LibraryRepositoryType = NetworkingBootstrapper.shared.createLibraryRepository()) {
         _libraryRepository = libraryRepository
+        books = Property(_books)
     }
     
     public func expandBooks() {
-        _libraryRepository.fetchEntities(page: currentPage)
+        _libraryRepository.fetchEntities(page: _currentPage)
             .map { $0.map { BookViewModel(book: $0) }}
             .startWithResult { [unowned self] result in
                 switch result {
                 case .success(let bookViewModels):
-                    self.books.value += bookViewModels
+                    self._books.value += bookViewModels
                     if bookViewModels.count > 0 {
-                        self.currentPage += 1
+                        self._currentPage += 1
                     }
                     
                 case .failure(let error):
