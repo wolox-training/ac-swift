@@ -33,6 +33,7 @@
 		AE591ACF2062FB5B00758AD1 /* WishlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE591ACE2062FB5B00758AD1 /* WishlistViewController.swift */; };
 		AE591AD12062FB9900758AD1 /* SuggestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE591AD02062FB9900758AD1 /* SuggestViewController.swift */; };
 		AE629585206A81E000A7F6DF /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE629584206A81E000A7F6DF /* UIButtonExtension.swift */; };
+		AE629587206A87AF00A7F6DF /* BookDetailComponent.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE629586206A87AF00A7F6DF /* BookDetailComponent.xib */; };
 		AE72E51020696E0D00B3924F /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72E50D20696E0D00B3924F /* BookDetailViewController.swift */; };
 		AE72E51120696E0D00B3924F /* BookDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE72E50E20696E0D00B3924F /* BookDetailView.xib */; };
 		AE72E51220696E0D00B3924F /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72E50F20696E0D00B3924F /* BookDetailView.swift */; };
@@ -126,6 +127,7 @@
 		AE591ACE2062FB5B00758AD1 /* WishlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WishlistViewController.swift; sourceTree = "<group>"; };
 		AE591AD02062FB9900758AD1 /* SuggestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestViewController.swift; sourceTree = "<group>"; };
 		AE629584206A81E000A7F6DF /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
+		AE629586206A87AF00A7F6DF /* BookDetailComponent.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookDetailComponent.xib; sourceTree = "<group>"; };
 		AE72E50D20696E0D00B3924F /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		AE72E50E20696E0D00B3924F /* BookDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetailView.xib; sourceTree = "<group>"; };
 		AE72E50F20696E0D00B3924F /* BookDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				AE72E50E20696E0D00B3924F /* BookDetailView.xib */,
 				AE72E50F20696E0D00B3924F /* BookDetailView.swift */,
 				AE72E50D20696E0D00B3924F /* BookDetailViewController.swift */,
+				AE629586206A87AF00A7F6DF /* BookDetailComponent.xib */,
 			);
 			path = BookDetail;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 				AE8A9B6E205C2973007F274F /* LibraryCellView.xib in Resources */,
 				9D15750C1CB1B27500EA395E /* Assets.xcassets in Resources */,
 				AE591ACB2062F84300758AD1 /* RentalsView.xib in Resources */,
+				AE629587206A87AF00A7F6DF /* BookDetailComponent.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

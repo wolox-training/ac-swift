@@ -27,7 +27,6 @@ class BookDetailView: UIView, NibLoadable {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
     }
     
     func loadBook(bookViewModel: BookViewModel) {
