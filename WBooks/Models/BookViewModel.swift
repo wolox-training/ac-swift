@@ -28,6 +28,14 @@ class BookViewModel {
     var image: URL? {
         return _book.image
     }
+
+    var year: String {
+        return _book.year
+    }
+
+    var genre: String {
+        return _book.genre
+    }
     
     func downloadImage(closure: @escaping (UIImage) -> Void) {
         guard let url = _book.image else { return }

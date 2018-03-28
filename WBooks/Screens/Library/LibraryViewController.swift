@@ -87,6 +87,11 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+       // swiftlint:disable:next line_length
+        navigationController?.pushViewController(BookDetailViewController(bookViewModel: _viewModel.books.value[indexPath.row]), animated: true)
+    }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if _view.tableView.contentOffset.y + _view.tableView.frame.height + 200 >= _view.tableView.contentSize.height {

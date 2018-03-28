@@ -13,8 +13,11 @@ import Utils
 class BookDetailViewController: UIViewController {
 
     fileprivate let _view: BookDetailView = BookDetailView.loadFromNib()!
+    fileprivate let _viewModel: BookDetailViewModel
     
-    init() {
+    init(bookViewModel: BookViewModel) {
+        _viewModel = BookDetailViewModel(bookViewModel: bookViewModel)
+
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -28,6 +31,10 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        _view.tableView.delegate = self
+        _view.tableView.dataSource = self
+        //  _view.tableView.register(cell: LibraryCellView.self)
         
         let navBar = navigationController?.navigationBar
         navBar?.shadowImage = UIImage()
@@ -36,4 +43,28 @@ class BookDetailViewController: UIViewController {
         navBar?.isTranslucent = true
     }
     
+}
+
+extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        /*
+        let cell = tableView.dequeue(cell: LibraryCellView.self, for: indexPath)!
+
+        cell.setCellData(bookViewModel: _viewModel.books.value[indexPath.row])
+        */
+        return UITableViewCell()
+    }
+
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return BookDetailComponentView.loadFromNib()!
+    }
+
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 270
+    }
 }

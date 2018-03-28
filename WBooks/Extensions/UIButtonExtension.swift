@@ -10,9 +10,10 @@ import Foundation
 import UIKit
 
 extension UIButton {
+
     func setGradient() {
         let gradient = CAGradientLayer()
-        gradient.frame = frame
+        gradient.frame = bounds
         gradient.colors = [
             UIColor.deepSkyBlue().cgColor,
             UIColor.mediumTurquoise().cgColor
@@ -22,5 +23,7 @@ extension UIButton {
         gradient.endPoint = CGPoint(x: 1, y: 0.5)
         gradient.cornerRadius = 25
         layer.addSublayer(gradient)
+        gradient.zPosition = -1
     }
+
 }

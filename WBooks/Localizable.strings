@@ -9,6 +9,9 @@
 "library.nav-bar.title" = "LIBRARY";
 "library.tab-bar.title" = "Library";
 
+"book-detail.wishlist-button.title" = "ADD TO WISHLIST";
+"book-detail.rent-button.title" = "RENT";
+
 "wishlist.nav-bar.title" = "WISHLIST";
 "wishlist.tab-bar.title" = "Wishlist";
 

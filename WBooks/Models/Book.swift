@@ -16,11 +16,15 @@ struct Book {
     var title: String
     var author: String
     var image: URL?
+    var year: String
+    var genre: String
     
-    init(title: String, author: String, imageURL: String?) {
+    init(title: String, author: String, imageURL: String?, year: String, genre: String) {
         self.title = title
         self.author = author
         self.image = imageURL.map { URL(string: $0)! }
+        self.year = year
+        self.genre = genre
     }
 }
 
@@ -31,6 +35,8 @@ extension Book: Argo.Decodable {
             <^> json <| "title"
             <*> json <| "author"
             <*> json <|? "image_url"
+            <*> json <| "year"
+            <*> json <| "genre"
     }
 
 }

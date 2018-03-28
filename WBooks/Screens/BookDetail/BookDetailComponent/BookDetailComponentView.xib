@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BookDetailComponentView" customModule="WBooks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="592" height="270"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="vqg-p6-E4d">
+                    <rect key="frame" x="30" y="18.5" width="592" height="233"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ycE-3m-Jfu">
+                            <rect key="frame" x="0.0" y="0.0" width="592" height="105"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bc_nav_bar" translatesAutoresizingMaskIntoConstraints="NO" id="dvk-0Q-m7k">
+                                    <rect key="frame" x="0.0" y="0.0" width="70" height="105"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="70" id="1nM-cN-drh"/>
+                                        <constraint firstAttribute="height" constant="105" id="1sX-uq-4q8"/>
+                                    </constraints>
+                                </imageView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="SXZ-53-KLS">
+                                    <rect key="frame" x="90" y="0.0" width="592" height="62.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HYo-mk-qYZ" userLabel="Book Title">
+                                            <rect key="frame" x="0.0" y="0.0" width="592" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJe-b7-hRY" userLabel="Book Availability">
+                                            <rect key="frame" x="0.0" y="23.5" width="592" height="18"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                            <color key="textColor" red="1" green="0.32606578489999999" blue="0.39246269230000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g9x-Br-kvc" userLabel="Book Data">
+                                            <rect key="frame" x="0.0" y="44.5" width="592" height="18"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="105" id="eKV-0P-tR6"/>
+                            </constraints>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="6OD-Pj-a1N">
+                            <rect key="frame" x="0.0" y="135" width="592" height="98"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4sC-Oz-jLQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="592" height="44"/>
+                                    <color key="backgroundColor" red="0.0049400171269999996" green="0.98925179240000005" blue="0.98865646119999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="1gq-In-mfP"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mzR-b0-jNA">
+                                    <rect key="frame" x="0.0" y="54" width="592" height="44"/>
+                                    <color key="backgroundColor" red="0.66988217829999996" green="0.63782006499999999" blue="0.92457520959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="fUQ-ov-C8r"/>
+                                    </constraints>
+                                    <state key="normal" title="Button"/>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="vqg-p6-E4d" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="MIE-Wh-9aG"/>
+                <constraint firstItem="vqg-p6-E4d" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Pdv-W4-Auh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="vqg-p6-E4d" secondAttribute="trailing" constant="30" id="iCs-Xc-N6Q"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="bookAvailability" destination="dJe-b7-hRY" id="lwS-D8-41k"/>
+                <outlet property="bookImage" destination="dvk-0Q-m7k" id="xmh-Cv-MgU"/>
+                <outlet property="bookInfo" destination="g9x-Br-kvc" id="fjh-Le-tmB"/>
+                <outlet property="bookTitle" destination="HYo-mk-qYZ" id="3K8-jV-0BO"/>
+                <outlet property="rentButton" destination="mzR-b0-jNA" id="SS4-TT-rAM"/>
+                <outlet property="wishlistButton" destination="4sC-Oz-jLQ" id="Mko-s9-qyK"/>
+            </connections>
+            <point key="canvasLocation" x="286" y="-462"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bc_nav_bar" width="375" height="102"/>
+    </resources>
+</document>
