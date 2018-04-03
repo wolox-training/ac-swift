@@ -14,8 +14,11 @@ import Result
 class BookDetailViewModel {
 
     fileprivate let _bookViewModel: BookViewModel
+    var bookViewModel: BookViewModel {
+        return _bookViewModel
+    }
 
-    init(bookViewModel: BookViewModel) {
+    init(_ bookViewModel: BookViewModel) {
         _bookViewModel = bookViewModel
     }
 

@@ -15,31 +15,26 @@ class BookDetailComponentView: UIView, NibLoadable {
     @IBOutlet weak var bookImage: UIImageView!
     @IBOutlet weak var bookTitle: UILabel!
     @IBOutlet weak var bookAvailability: UILabel!
-    @IBOutlet weak var bookInfo: UILabel!
+    @IBOutlet weak var bookAuthor: UILabel!
+    @IBOutlet weak var bookYear: UILabel!
+    @IBOutlet weak var bookGenre: UILabel!
     @IBOutlet weak var wishlistButton: UIButton!
     @IBOutlet weak var rentButton: UIButton!
 
     override internal func awakeFromNib() {
         super.awakeFromNib()
-
+        
         setupUI()
     }
 
     func setGradients() {
         rentButton.setGradient()
     }
-
-    func setBookData(bookViewModel: BookViewModel) {
-        bookTitle.text = bookViewModel.title
-        bookInfo.text = "\(bookViewModel.author)\n\(bookViewModel.year)\n\(bookViewModel.genre)"
-        bookViewModel.downloadImage { self.bookImage.image = $0 }
-        bookAvailability.text = "Chimpokomon"
-    }
-
 }
 
 fileprivate extension BookDetailComponentView {
 
+    // swiftlint:disable:next function_body_length
     func setupUI() {
         backgroundColor = .white
 
@@ -50,8 +45,12 @@ fileprivate extension BookDetailComponentView {
         bookAvailability.font = .systemBold(size: 15)
         bookAvailability.textColor = .atlantis()
 
-        bookInfo.font.withSize(15)
-        bookInfo.textColor = .darkGray
+        bookAuthor.font.withSize(15)
+        bookAuthor.textColor = .darkGray
+        bookYear.font.withSize(15)
+        bookYear.textColor = .darkGray
+        bookGenre.font.withSize(15)
+        bookGenre.textColor = .darkGray
 
         wishlistButton.layer.cornerRadius = 25
         wishlistButton.layer.borderWidth = 1

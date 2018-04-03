@@ -82,15 +82,19 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cell: LibraryCellView.self, for: indexPath)!
-        
-        cell.setCellData(bookViewModel: _viewModel.books.value[indexPath.row])
+
+        let bookViewModel: BookViewModel = _viewModel.books.value[indexPath.row]
+
+        cell.bookTitle.text = bookViewModel.title
+        cell.bookAuthor.text = bookViewModel.author
+        bookViewModel.getImage { cell.bookCover.image = $0 }
         
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        // swiftlint:disable:next line_length
-        navigationController?.pushViewController(BookDetailViewController(bookViewModel: _viewModel.books.value[indexPath.row]), animated: true)
+        navigationController?.pushViewController(BookDetailViewController(_viewModel.books.value[indexPath.row]), animated: true)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {

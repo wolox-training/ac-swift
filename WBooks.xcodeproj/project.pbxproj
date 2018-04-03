@@ -36,7 +36,6 @@
 		AE629585206A81E000A7F6DF /* UIButtonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE629584206A81E000A7F6DF /* UIButtonExtension.swift */; };
 		AE629587206A87AF00A7F6DF /* BookDetailComponentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE629586206A87AF00A7F6DF /* BookDetailComponentView.xib */; };
 		AE68A7F7206C25D60084662F /* BookDetailComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE68A7F6206C25D60084662F /* BookDetailComponentView.swift */; };
-		AE68A7F9206C2FDA0084662F /* BookDetailComponentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE68A7F8206C2FDA0084662F /* BookDetailComponentViewController.swift */; };
 		AE72E51020696E0D00B3924F /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72E50D20696E0D00B3924F /* BookDetailViewController.swift */; };
 		AE72E51120696E0D00B3924F /* BookDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE72E50E20696E0D00B3924F /* BookDetailView.xib */; };
 		AE72E51220696E0D00B3924F /* BookDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE72E50F20696E0D00B3924F /* BookDetailView.swift */; };
@@ -133,7 +132,6 @@
 		AE629584206A81E000A7F6DF /* UIButtonExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButtonExtension.swift; sourceTree = "<group>"; };
 		AE629586206A87AF00A7F6DF /* BookDetailComponentView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookDetailComponentView.xib; sourceTree = "<group>"; };
 		AE68A7F6206C25D60084662F /* BookDetailComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailComponentView.swift; sourceTree = "<group>"; };
-		AE68A7F8206C2FDA0084662F /* BookDetailComponentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailComponentViewController.swift; sourceTree = "<group>"; };
 		AE72E50D20696E0D00B3924F /* BookDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 		AE72E50E20696E0D00B3924F /* BookDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookDetailView.xib; sourceTree = "<group>"; };
 		AE72E50F20696E0D00B3924F /* BookDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookDetailView.swift; sourceTree = "<group>"; };
@@ -351,7 +349,6 @@
 			children = (
 				AE629586206A87AF00A7F6DF /* BookDetailComponentView.xib */,
 				AE68A7F6206C25D60084662F /* BookDetailComponentView.swift */,
-				AE68A7F8206C2FDA0084662F /* BookDetailComponentViewController.swift */,
 			);
 			path = BookDetailComponent;
 			sourceTree = "<group>";
@@ -658,7 +655,6 @@
 				AE591ACA2062F84300758AD1 /* RentalsView.swift in Sources */,
 				AE629585206A81E000A7F6DF /* UIButtonExtension.swift in Sources */,
 				AECB8C9C20600F7B00FA9B65 /* Book.swift in Sources */,
-				AE68A7F9206C2FDA0084662F /* BookDetailComponentViewController.swift in Sources */,
 				AE591AC62062F83000758AD1 /* SuggestView.swift in Sources */,
 				AE591AB82062E86D00758AD1 /* TabBarViewController.swift in Sources */,
 				AE72E51220696E0D00B3924F /* BookDetailView.swift in Sources */,

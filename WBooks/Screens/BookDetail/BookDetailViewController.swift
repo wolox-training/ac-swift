@@ -15,8 +15,8 @@ class BookDetailViewController: UIViewController {
     fileprivate let _view: BookDetailView = BookDetailView.loadFromNib()!
     fileprivate let _viewModel: BookDetailViewModel
     
-    init(bookViewModel: BookViewModel) {
-        _viewModel = BookDetailViewModel(bookViewModel: bookViewModel)
+    init(_ bookViewModel: BookViewModel) {
+        _viewModel = BookDetailViewModel(bookViewModel)
 
         super.init(nibName: nil, bundle: nil)
     }
@@ -52,19 +52,23 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        /*
-        let cell = tableView.dequeue(cell: LibraryCellView.self, for: indexPath)!
-
-        cell.setCellData(bookViewModel: _viewModel.books.value[indexPath.row])
-        */
         return UITableViewCell()
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return BookDetailComponentView.loadFromNib()!
+        let bookComponentView: BookDetailComponentView = BookDetailComponentView.loadFromNib()!
+
+        bookComponentView.bookTitle.text = _viewModel.bookViewModel.title
+        bookComponentView.bookYear.text = _viewModel.bookViewModel.year
+        bookComponentView.bookGenre.text = _viewModel.bookViewModel.genre.capitalized
+        bookComponentView.bookAuthor.text = _viewModel.bookViewModel.author
+        _viewModel.bookViewModel.getImage { bookComponentView.bookImage.image = $0 }
+        
+        return bookComponentView
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 270
     }
+    
 }
