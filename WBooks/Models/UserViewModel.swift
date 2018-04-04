@@ -1,8 +1,8 @@
 //
-//  BookViewModel.swift
+//  UserViewModel.swift
 //  WBooks
 //
-//  Created by Ariel Cid on 3/19/18.
+//  Created by Ariel Cid on 4/3/18.
 //  Copyright © 2018 Wolox. All rights reserved.
 //
 
@@ -10,37 +10,29 @@ import Foundation
 import UIKit
 import Utils
 
-class BookViewModel {
-    fileprivate var _book: Book
-    
-    init(book: Book) {
-        _book = book
+class UserViewModel {
+    fileprivate var _user: User
+
+    init(user: User) {
+        _user = user
     }
 
     var id: String {
-        return _book.id
+        return _user.id
     }
 
-    var title: String {
-        return _book.title
-    }
-    
-    var author: String {
-        return _book.author
+    var firstName: String {
+        return _user.firstName
     }
 
-    var year: String {
-        return _book.year
-    }
-
-    var genre: String {
-        return _book.genre
+    var lastName: String {
+        return _user.lastName
     }
 
     private var _image: UIImage?
 
     func getImage(closure: @escaping (UIImage) -> Void) {
-        guard let url = _book.image else { return }
+        guard let url = _user.imageURL else { return }
 
         if _image != .none {
             closure(self._image!)

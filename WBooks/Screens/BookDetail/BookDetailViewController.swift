@@ -14,6 +14,7 @@ class BookDetailViewController: UIViewController {
 
     fileprivate let _view: BookDetailView = BookDetailView.loadFromNib()!
     fileprivate let _viewModel: BookDetailViewModel
+    fileprivate var _bookComponentView: BookDetailComponentView?
     
     init(_ bookViewModel: BookViewModel) {
         _viewModel = BookDetailViewModel(bookViewModel)
@@ -42,6 +43,10 @@ class BookDetailViewController: UIViewController {
         navBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.systemBold().withSize(17)]  // swiftlint:disable:this line_length
         navBar?.isTranslucent = true
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        _bookComponentView?.setGradients()
+    }
     
 }
 
@@ -56,19 +61,19 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let bookComponentView: BookDetailComponentView = BookDetailComponentView.loadFromNib()!
+        _bookComponentView = BookDetailComponentView.loadFromNib()!
 
-        bookComponentView.bookTitle.text = _viewModel.bookViewModel.title
-        bookComponentView.bookYear.text = _viewModel.bookViewModel.year
-        bookComponentView.bookGenre.text = _viewModel.bookViewModel.genre.capitalized
-        bookComponentView.bookAuthor.text = _viewModel.bookViewModel.author
-        _viewModel.bookViewModel.getImage { bookComponentView.bookImage.image = $0 }
+        _bookComponentView?.bookTitle.text = _viewModel.bookViewModel.title
+        _bookComponentView?.bookYear.text = _viewModel.bookViewModel.year
+        _bookComponentView?.bookGenre.text = _viewModel.bookViewModel.genre.capitalized
+        _bookComponentView?.bookAuthor.text = _viewModel.bookViewModel.author
+        _viewModel.bookViewModel.getImage { self._bookComponentView?.bookImage.image = $0 }
         
-        return bookComponentView
+        return _bookComponentView
     }
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 270
+        return 280
     }
     
 }

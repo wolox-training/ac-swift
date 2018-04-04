@@ -20,6 +20,7 @@ class BookDetailComponentView: UIView, NibLoadable {
     @IBOutlet weak var bookGenre: UILabel!
     @IBOutlet weak var wishlistButton: UIButton!
     @IBOutlet weak var rentButton: UIButton!
+    @IBOutlet weak var viewSeparator: UIView!
 
     override internal func awakeFromNib() {
         super.awakeFromNib()
@@ -37,6 +38,7 @@ fileprivate extension BookDetailComponentView {
     // swiftlint:disable:next function_body_length
     func setupUI() {
         backgroundColor = .white
+        viewSeparator.backgroundColor = UIColor.polar()
 
         bookTitle.font = .systemBold(size: 24)
         bookTitle.textColor = .darkGray
