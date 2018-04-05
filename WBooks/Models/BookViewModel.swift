@@ -17,7 +17,7 @@ class BookViewModel {
         _book = book
     }
 
-    var id: String {
+    var id: Int {
         return _book.id
     }
 

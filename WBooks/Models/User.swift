@@ -13,12 +13,12 @@ import Curry
 import Runes
 
 struct User {
-    let id: String
+    let id: Int
     let firstName: String
     let lastName: String
     let imageURL: URL?
 
-    init(id: String, firstName: String, lastName: String, imageURL: String?) {
+    init(id: Int, firstName: String, lastName: String, imageURL: String?) {
         self.id = id
         self.firstName = firstName
         self.lastName = lastName
@@ -31,8 +31,8 @@ extension User: Argo.Decodable {
     static func decode(_ json: JSON) -> Decoded<User> {
         return curry(User.init)
             <^> json <| "id"
-            <*> json <| "firstName"
-            <*> json <| "lastName"
-            <*> json <| "imageURL"
+            <*> json <| "first_name"
+            <*> json <| "last_name"
+            <*> json <|? "image_url"
     }
 }

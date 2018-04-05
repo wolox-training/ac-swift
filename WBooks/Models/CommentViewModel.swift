@@ -17,11 +17,11 @@ class CommentViewModel {
         _comment = comment
     }
 
-    var user: String {
+    var user: User {
         return _comment.user
     }
 
-    var id: String {
+    var id: Int {
         return _comment.id
     }
 
@@ -31,5 +31,29 @@ class CommentViewModel {
 
     var content: String {
         return _comment.content
+    }
+
+    private var _image: UIImage?
+
+    func getImage(closure: @escaping (UIImage) -> Void) {
+        guard let url = user.imageURL else { return }
+
+        if _image != .none {
+            closure(self._image!)
+        } else {
+            let imageFetcher = ImageFetcher()
+
+            imageFetcher.fetchImage(url).startWithResult { result in
+                switch result {
+                case .success(let image):
+                    self._image = image
+                    DispatchQueue.main.async {
+                        closure(image)
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
     }
 }

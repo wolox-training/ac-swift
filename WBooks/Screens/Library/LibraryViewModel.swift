@@ -16,16 +16,16 @@ class LibraryViewModel {
     let books: Property<[BookViewModel]>
     
     fileprivate let _books = MutableProperty<[BookViewModel]>([])
-    fileprivate let _libraryRepository: LibraryRepositoryType
+    fileprivate let _wBooksRepository: WBooksDepositoryType
     fileprivate var _currentPage = 1
     
-    init(libraryRepository: LibraryRepositoryType = NetworkingBootstrapper.shared.createLibraryRepository()) {
-        _libraryRepository = libraryRepository
+    init(wBooksDepository: WBooksDepositoryType = NetworkingBootstrapper.shared.createWBooksRepository()) {
+        _wBooksRepository = wBooksDepository
         books = Property(_books)
     }
     
     public func expandBooks() {
-        _libraryRepository.fetchEntities(page: _currentPage)
+        _wBooksRepository.fetchEntities(page: _currentPage)
             .map { $0.map { BookViewModel(book: $0) }}
             .startWithResult { [unowned self] result in
                 switch result {

@@ -40,28 +40,6 @@ class LibraryViewController: UIViewController {
         setupNavBar()
         _viewModel.expandBooks()
     }
-
-    fileprivate func setupBindings() {
-        _viewModel.books.producer.startWithResult { [unowned self] _ in
-            self._view.tableView.reloadData()
-        }
-    }
-    
-    private func setupNavBar() {
-        title = "library.nav-bar.title".localized()
-        
-        let navBar = navigationController?.navigationBar
-        navBar?.shadowImage = UIImage()
-        navBar?.setBackgroundImage(UIImage(), for: .default)
-        navBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.systemBold().withSize(17)]  // swiftlint:disable:this line_length
-        navBar?.isTranslucent = true
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_search"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightButtonSelector(selector:)))    // swiftlint:disable:this line_length
-        navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_notifications"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftButtonSelector(selector:)))   // swiftlint:disable:this line_length
-        navigationItem.leftBarButtonItem?.tintColor = UIColor.white
-    }
     
     @objc func rightButtonSelector(selector: UIBarButtonItem) {
         print("Search!")
@@ -101,5 +79,30 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
         if _view.tableView.contentOffset.y + _view.tableView.frame.height + 200 >= _view.tableView.contentSize.height {
             _viewModel.expandBooks()
         }
+    }
+}
+
+// MARK: - View setup
+extension LibraryViewController {
+    fileprivate func setupBindings() {
+        _viewModel.books.producer.startWithResult { [unowned self] _ in
+            self._view.tableView.reloadData()
+        }
+    }
+
+    private func setupNavBar() {
+        navigationItem.title = "library.nav-bar.title".localized()
+
+        let navBar = navigationController?.navigationBar
+        navBar?.shadowImage = UIImage()
+        navBar?.setBackgroundImage(UIImage(), for: .default)
+        navBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.systemBold().withSize(17)]  // swiftlint:disable:this line_length
+        navBar?.isTranslucent = true
+
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_search"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightButtonSelector(selector:)))    // swiftlint:disable:this line_length
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_notifications"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftButtonSelector(selector:)))   // swiftlint:disable:this line_length
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.white
     }
 }

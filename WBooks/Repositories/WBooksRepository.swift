@@ -1,5 +1,5 @@
 //
-//  LibraryRepository.swift
+//  WBooksDepository.swift
 //  WBooks
 //
 //  Created by Ariel Cid on 3/19/18.
@@ -12,11 +12,12 @@ import ReactiveSwift
 import Argo
 import Result
 
-protocol LibraryRepositoryType {
+protocol WBooksDepositoryType {
     func fetchEntities(page: Int) -> SignalProducer<[Book], RepositoryError>
+    func fetchEntities(bookID: Int) -> SignalProducer<[Comment], RepositoryError>
 }
 
-class WBooksDepository: AbstractRepository, LibraryRepositoryType {
+class WBooksDepository: AbstractRepository, WBooksDepositoryType {
     private static let EntitiesPath = "books"
     private static let CommentsPath = "comments"
     private static let PageKey = "page"
@@ -32,7 +33,7 @@ class WBooksDepository: AbstractRepository, LibraryRepositoryType {
     }
 
     public func fetchEntities(bookID: Int) -> SignalProducer<[Comment], RepositoryError> {
-        let path = WBooksDepository.EntitiesPath + "/\(bookID)/" + CommentRepository.CommentsPath
+        let path = WBooksDepository.EntitiesPath + "/\(bookID)/" + WBooksDepository.CommentsPath
         return performRequest(method: .get, path: path, parameters: nil) {
             decode($0).toResult()
         }

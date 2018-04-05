@@ -17,7 +17,7 @@ class UserViewModel {
         _user = user
     }
 
-    var id: String {
+    var id: Int {
         return _user.id
     }
 
@@ -27,29 +27,5 @@ class UserViewModel {
 
     var lastName: String {
         return _user.lastName
-    }
-
-    private var _image: UIImage?
-
-    func getImage(closure: @escaping (UIImage) -> Void) {
-        guard let url = _user.imageURL else { return }
-
-        if _image != .none {
-            closure(self._image!)
-        } else {
-            let imageFetcher = ImageFetcher()
-
-            imageFetcher.fetchImage(url).startWithResult { result in
-                switch result {
-                case .success(let image):
-                    self._image = image
-                    DispatchQueue.main.async {
-                        closure(image)
-                    }
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
     }
 }

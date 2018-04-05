@@ -10,9 +10,11 @@ import Foundation
 import UIKit
 import Core
 
-class BookCommentCellView: UIView, NibLoadable {
+class BookCommentCellView: UITableViewCell, NibLoadable {
 
-
+    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var userComment: UILabel!
 
     override internal func awakeFromNib() {
         super.awakeFromNib()
@@ -24,11 +26,12 @@ class BookCommentCellView: UIView, NibLoadable {
 fileprivate extension BookCommentCellView {
 
     func setupUI() {
+        userName.font = .systemBold(size: 17)
+        userName.textColor = .darkGray
 
+        userComment.font = UIFont.systemFont(ofSize: 15)
+        userComment.textColor = .darkGray
+        userComment.numberOfLines = 0
+        userComment.sizeToFit()
     }
 }
-
-/*
-[_titleLabel setNumberOfLines:0];
-[_titleLabel sizeToFit];
-*/

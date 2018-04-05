@@ -13,17 +13,10 @@ import Curry
 import Runes
 
 struct Comment {
-    var id: String
-    var user: String
+    var id: Int
+    var user: User
     var book: Book
     var content: String
-
-    init(id: String, user: String, book: Book, content: String) {
-        self.id = id
-        self.user = user
-        self.book = book
-        self.content = content
-    }
 }
 
 extension Comment: Argo.Decodable {
@@ -33,6 +26,6 @@ extension Comment: Argo.Decodable {
             <^> json <| "id"
             <*> json <| "user"
             <*> json <| "book"
-            <*> json <| "comment"
+            <*> json <| "content"
     }
 }

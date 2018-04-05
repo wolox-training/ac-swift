@@ -35,29 +35,33 @@ class BookDetailViewController: UIViewController {
 
         _view.tableView.delegate = self
         _view.tableView.dataSource = self
-        //  _view.tableView.register(cell: LibraryCellView.self)
-        
-        let navBar = navigationController?.navigationBar
-        navBar?.shadowImage = UIImage()
-        navBar?.setBackgroundImage(UIImage(), for: .default)
-        navBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.systemBold().withSize(17)]  // swiftlint:disable:this line_length
-        navBar?.isTranslucent = true
+        _view.tableView.register(cell: BookCommentCellView.self)
+
+        setupBindings()
+        setupNavBar()
+        _viewModel.getComments()
     }
 
     override func viewDidAppear(_ animated: Bool) {
         _bookComponentView?.setGradients()
     }
-    
 }
 
 extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return _viewModel.comments.value.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeue(cell: BookCommentCellView.self, for: indexPath)!
+        let commentViewModel: CommentViewModel = _viewModel.comments.value[indexPath.row]
+
+        cell.userName.text = commentViewModel.user.firstName + " " + commentViewModel.user.lastName
+        cell.userComment.text = commentViewModel.content
+        commentViewModel.getImage { cell.userImage.image = $0 }
+
+        return cell
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -75,5 +79,22 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 280
     }
-    
+}
+
+extension BookDetailViewController {
+
+    private func setupNavBar() {
+        let navBar = navigationController?.navigationBar
+        navBar?.shadowImage = UIImage()
+        navBar?.setBackgroundImage(UIImage(), for: .default)
+        navBar?.isTranslucent = true
+
+        navigationItem.title = "BOOK DETAIL"    // TODO: Localise
+    }
+
+    fileprivate func setupBindings() {
+        _viewModel.comments.producer.startWithResult { [unowned self] _ in
+            self._view.tableView.reloadData()
+        }
+    }
 }

@@ -17,31 +17,32 @@ class BookDetailViewModel {
 
     fileprivate let _comments = MutableProperty<[CommentViewModel]>([])
     fileprivate let _bookViewModel: BookViewModel
-    fileprivate let _commentRepository: CommentRepositoryType
+    fileprivate let _wBooksDepository: WBooksDepositoryType
 
     var bookViewModel: BookViewModel {
         return _bookViewModel
     }
 
     // swiftlint:disable:next line_length
-    init(_ bookViewModel: BookViewModel, _ commentRepository: CommentRepositoryType = NetworkingBootstrapper.shared.createCommentRepository()) {
-        _commentRepository = commentRepository
+    init(_ bookViewModel: BookViewModel, _ wBooksDepository: WBooksDepositoryType = NetworkingBootstrapper.shared.createWBooksRepository()) {
+        _wBooksDepository = wBooksDepository
         _bookViewModel = bookViewModel
-         comments = Property(_comments)
+        comments = Property(_comments)
     }
 
     public func getComments() {
-        _commentRepository.fetchEntities(bookID: _bookViewModel.id)
-            .map { $0.map { CommentViewModel(comment: $0) }}
+        _wBooksDepository.fetchEntities(bookID: _bookViewModel.id)
+            .map { (values: [Comment]) -> [CommentViewModel] in
+                return values.map { CommentViewModel(comment: $0) }
+            }
             .startWithResult { [unowned self] result in
                 switch result {
                 case .success(let commentViewModels):
-                    self._comments.value += commentViewModels
+                    self._comments.value = commentViewModels
 
                 case .failure(let error):
                     print(error)
                 }
         }
     }
-
 }

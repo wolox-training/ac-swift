@@ -13,14 +13,14 @@ import Curry
 import Runes
 
 struct Book {
-    var id: String
+    var id: Int
     var title: String
     var author: String
     var image: URL?
     var year: String
     var genre: String
     
-    init(id: String, title: String, author: String, imageURL: String?, year: String, genre: String) {
+    init(id: Int, title: String, author: String, imageURL: String?, year: String, genre: String) {
         self.id = id
         self.title = title
         self.author = author
