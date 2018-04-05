@@ -46,7 +46,7 @@ fileprivate extension BookDetailComponentView {
         //  TO DO: AVAILABILITY-BASED FORMATTING
         bookAvailability.font = .systemBold(size: 15)
         bookAvailability.textColor = .atlantis()
-        bookAvailability.text = "Available" // TODO: Localise
+        bookAvailability.text = "Available"
 
         bookAuthor.font.withSize(15)
         bookAuthor.textColor = .darkGray

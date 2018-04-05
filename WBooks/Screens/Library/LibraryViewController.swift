@@ -71,7 +71,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // swiftlint:disable:next line_length
+        // swiftlint:disable:next line_length
         navigationController?.pushViewController(BookDetailViewController(_viewModel.books.value[indexPath.row]), animated: true)
     }
     
@@ -98,7 +98,7 @@ extension LibraryViewController {
         navBar?.setBackgroundImage(UIImage(), for: .default)
         navBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.systemBold().withSize(17)]  // swiftlint:disable:this line_length
         navBar?.isTranslucent = true
-
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_search"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightButtonSelector(selector:)))    // swiftlint:disable:this line_length
         navigationItem.rightBarButtonItem?.tintColor = UIColor.white
 

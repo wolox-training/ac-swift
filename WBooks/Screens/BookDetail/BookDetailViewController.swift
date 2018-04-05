@@ -88,8 +88,10 @@ extension BookDetailViewController {
         navBar?.shadowImage = UIImage()
         navBar?.setBackgroundImage(UIImage(), for: .default)
         navBar?.isTranslucent = true
-
-        navigationItem.title = "BOOK DETAIL"    // TODO: Localise
+        navBar?.topItem?.title = ""
+        navBar?.tintColor = .white
+        
+        navigationItem.title = "book-detail.nav-bar.title".localized()
     }
 
     fileprivate func setupBindings() {
