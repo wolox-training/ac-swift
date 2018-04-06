@@ -40,6 +40,11 @@ class LibraryViewController: UIViewController {
         setupNavBar()
         _viewModel.expandBooks()
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "library.nav-bar.title".localized()
+    }
     
     @objc func rightButtonSelector(selector: UIBarButtonItem) {
         print("Search!")
