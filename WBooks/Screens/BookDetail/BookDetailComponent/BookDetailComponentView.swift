@@ -21,15 +21,24 @@ class BookDetailComponentView: UIView, NibLoadable {
     @IBOutlet weak var wishlistButton: UIButton!
     @IBOutlet weak var rentButton: UIButton!
     @IBOutlet weak var viewSeparator: UIView!
+    @IBOutlet weak var containerView: UIView!
 
+    private var rentGradient: CAGradientLayer?
+    
     override internal func awakeFromNib() {
         super.awakeFromNib()
-        
+
         setupUI()
     }
 
-    func setGradients() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
+
         rentButton.setGradient()
+    }
+
+    func setGradients() {
+
     }
 }
 
@@ -40,10 +49,17 @@ fileprivate extension BookDetailComponentView {
         backgroundColor = .white
         viewSeparator.backgroundColor = UIColor.polar()
 
+        containerView.layer.cornerRadius = 5
+        containerView.layer.backgroundColor = UIColor.clear.cgColor
+        containerView.layer.shadowOffset = CGSize(width: 0, height: 1)
+        containerView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.05).cgColor
+        containerView.layer.shadowOpacity = 1
+        containerView.layer.shadowRadius = 1
+
         bookTitle.font = .systemBold(size: 24)
         bookTitle.textColor = .darkGray
 
-        //  TO DO: AVAILABILITY-BASED FORMATTING
+        //  TODO: AVAILABILITY-BASED FORMATTING
         bookAvailability.font = .systemBold(size: 15)
         bookAvailability.textColor = .atlantis()
         bookAvailability.text = "Available"
@@ -55,7 +71,7 @@ fileprivate extension BookDetailComponentView {
         bookGenre.font.withSize(15)
         bookGenre.textColor = .darkGray
 
-        wishlistButton.layer.cornerRadius = 25
+        wishlistButton.layer.cornerRadius = rentButton.frame.height / 2
         wishlistButton.layer.borderWidth = 1
         wishlistButton.layer.borderColor = UIColor.cerulean().cgColor
         wishlistButton.backgroundColor = UIColor.white
@@ -63,8 +79,8 @@ fileprivate extension BookDetailComponentView {
         wishlistButton.setTitleColor(.deepSkyBlue(), for: UIControlState.normal)
         wishlistButton.titleLabel?.font = .systemHeavy(size: 15)
 
-        //  TO DO: RENTAL AVAILABILITY
-        rentButton.layer.cornerRadius = 25
+        //  TODO: RENTAL AVAILABILITY
+        rentButton.layer.cornerRadius = rentButton.frame.height / 2
         rentButton.setTitle("book-detail.rent-button.title".localized(), for: UIControlState.normal)
         rentButton.setTitleColor(.white, for: UIControlState.normal)
         rentButton.titleLabel?.font = .systemHeavy(size: 15)

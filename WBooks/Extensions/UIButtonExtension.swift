@@ -21,7 +21,7 @@ extension UIButton {
         gradient.locations = [0, 1]
         gradient.startPoint = CGPoint(x: 0.06, y: 0.5)
         gradient.endPoint = CGPoint(x: 1, y: 0.5)
-        gradient.cornerRadius = 25
+        gradient.cornerRadius = frame.height / 2
         layer.addSublayer(gradient)
         gradient.zPosition = -1
     }

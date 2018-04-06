@@ -41,10 +41,6 @@ class BookDetailViewController: UIViewController {
         setupNavBar()
         _viewModel.getComments()
     }
-
-    override func viewDidAppear(_ animated: Bool) {
-        _bookComponentView?.setGradients()
-    }
 }
 
 extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
