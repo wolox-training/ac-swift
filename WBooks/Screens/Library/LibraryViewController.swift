@@ -70,7 +70,7 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.bookTitle.text = bookViewModel.title
         cell.bookAuthor.text = bookViewModel.author
-        bookViewModel.getImage { cell.bookCover.image = $0 }
+        bookViewModel.getImage(imageURL: bookViewModel.imageURL, closure: { cell.bookCover.image = $0 })
         
         return cell
     }

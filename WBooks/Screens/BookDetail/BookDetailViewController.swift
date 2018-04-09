@@ -55,7 +55,7 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.userName.text = commentViewModel.user.firstName + " " + commentViewModel.user.lastName
         cell.userComment.text = commentViewModel.content
-        commentViewModel.getImage { cell.userImage.image = $0 }
+        commentViewModel.getImage(imageURL: commentViewModel.imageURL, closure: { cell.userImage.image = $0 })
 
         return cell
     }
@@ -67,7 +67,7 @@ extension BookDetailViewController: UITableViewDelegate, UITableViewDataSource {
         _bookComponentView?.bookYear.text = _viewModel.bookViewModel.year
         _bookComponentView?.bookGenre.text = _viewModel.bookViewModel.genre.capitalized
         _bookComponentView?.bookAuthor.text = _viewModel.bookViewModel.author
-        _viewModel.bookViewModel.getImage { self._bookComponentView?.bookImage.image = $0 }
+        _viewModel.bookViewModel.getImage(imageURL: _viewModel.bookViewModel.imageURL, closure: { self._bookComponentView?.bookImage.image = $0 })  //  swiftlint:disable:this line_length
         
         return _bookComponentView
     }

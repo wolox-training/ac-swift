@@ -36,10 +36,6 @@ class BookDetailComponentView: UIView, NibLoadable {
 
         rentButton.setGradient()
     }
-
-    func setGradients() {
-
-    }
 }
 
 fileprivate extension BookDetailComponentView {

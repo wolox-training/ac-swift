@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Utils
 
-class BookViewModel {
+class BookViewModel: FetchedImageViewModelType {
     fileprivate var _book: Book
     
     init(book: Book) {
@@ -37,27 +37,7 @@ class BookViewModel {
         return _book.genre
     }
 
-    private var _image: UIImage?
-
-    func getImage(closure: @escaping (UIImage) -> Void) {
-        guard let url = _book.image else { return }
-
-        if _image != .none {
-            closure(self._image!)
-        } else {
-            let imageFetcher = ImageFetcher()
-
-            imageFetcher.fetchImage(url).startWithResult { result in
-                switch result {
-                case .success(let image):
-                    self._image = image
-                    DispatchQueue.main.async {
-                        closure(image)
-                    }
-                case .failure(let error):
-                    print(error)
-                }
-            }
-        }
+    var imageURL: URL? {
+        return _book.image
     }
 }
