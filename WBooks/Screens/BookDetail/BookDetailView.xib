@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="BookDetailView" customModule="WBooks" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bc_nav_bar" translatesAutoresizingMaskIntoConstraints="NO" id="HD5-gE-NzA">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="102"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="102" id="vYO-UI-b2k"/>
+                    </constraints>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="DRA-gR-6Pq">
+                    <rect key="frame" x="20" y="123" width="335" height="544"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="DRA-gR-6Pq" firstAttribute="top" secondItem="HD5-gE-NzA" secondAttribute="bottom" constant="21" id="3DC-7I-cdq"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="HD5-gE-NzA" secondAttribute="trailing" id="3Fm-BQ-Ijr"/>
+                <constraint firstItem="HD5-gE-NzA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="SdV-r5-vCx"/>
+                <constraint firstItem="HD5-gE-NzA" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="SiO-eu-lBu"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="DRA-gR-6Pq" secondAttribute="trailing" constant="20" id="TR2-oD-Ekt"/>
+                <constraint firstItem="DRA-gR-6Pq" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="Zgq-kW-rhD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DRA-gR-6Pq" secondAttribute="bottom" id="tsq-hA-5cf"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="tableView" destination="DRA-gR-6Pq" id="l8A-l0-nwx"/>
+            </connections>
+            <point key="canvasLocation" x="-88.5" y="52.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bc_nav_bar" width="375" height="102"/>
+    </resources>
+</document>

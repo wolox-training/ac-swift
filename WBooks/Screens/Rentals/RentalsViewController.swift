@@ -1,5 +1,5 @@
 //
-//  RentalsViewController.swift
+//  BookDetailViewController.swift
 //  WBooks
 //
 //  Created by Ariel Cid on 3/21/18.

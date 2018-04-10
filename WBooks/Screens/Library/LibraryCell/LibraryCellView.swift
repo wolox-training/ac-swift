@@ -23,12 +23,6 @@ class LibraryCellView: UITableViewCell, NibLoadable {
         setupUI()
     }
     
-    func setCellData(bookViewModel: BookViewModel) {
-        bookTitle.text = bookViewModel.title
-        bookAuthor.text = bookViewModel.author
-        bookViewModel.downloadImage { self.bookCover.image = $0 }
-    }
-    
 }
 
 fileprivate extension LibraryCellView {

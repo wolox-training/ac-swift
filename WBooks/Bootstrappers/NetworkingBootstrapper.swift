@@ -35,8 +35,8 @@ class NetworkingBootstrapper {
         injectCurrentUserFetcher()
     }
     
-    func createLibraryRepository() -> LibraryRepositoryType {
-        return LibraryRepository(networkingConfiguration: networkingConfiguration, sessionManager: _sessionManager)
+    func createWBooksRepository() -> WBooksDepository {
+        return WBooksDepository(networkingConfiguration: networkingConfiguration, sessionManager: _sessionManager)
     }
     
 }
@@ -59,7 +59,7 @@ fileprivate extension NetworkingBootstrapper {
 
     func injectCurrentUserFetcher() {
         if !_sessionManager.isLoggedIn {
-            let currentUser = User()
+            let currentUser = AuthUser()
             _sessionManager.login(user: currentUser)
         } else {
             print("User is already logged")

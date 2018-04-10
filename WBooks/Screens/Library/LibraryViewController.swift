@@ -41,26 +41,9 @@ class LibraryViewController: UIViewController {
         _viewModel.expandBooks()
     }
 
-    fileprivate func setupBindings() {
-        _viewModel.books.producer.startWithResult { [unowned self] _ in
-            self._view.tableView.reloadData()
-        }
-    }
-    
-    private func setupNavBar() {
-        title = "library.nav-bar.title".localized()
-        
-        let navBar = navigationController?.navigationBar
-        navBar?.shadowImage = UIImage()
-        navBar?.setBackgroundImage(UIImage(), for: .default)
-        navBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.systemBold().withSize(17)]  // swiftlint:disable:this line_length
-        navBar?.isTranslucent = true
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_search"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightButtonSelector(selector:)))    // swiftlint:disable:this line_length
-        navigationItem.rightBarButtonItem?.tintColor = UIColor.white
-        
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_notifications"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftButtonSelector(selector:)))   // swiftlint:disable:this line_length
-        navigationItem.leftBarButtonItem?.tintColor = UIColor.white
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.title = "library.nav-bar.title".localized()
     }
     
     @objc func rightButtonSelector(selector: UIBarButtonItem) {
@@ -82,15 +65,49 @@ extension LibraryViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeue(cell: LibraryCellView.self, for: indexPath)!
-        
-        cell.setCellData(bookViewModel: _viewModel.books.value[indexPath.row])
+
+        let bookViewModel: BookViewModel = _viewModel.books.value[indexPath.row]
+
+        cell.bookTitle.text = bookViewModel.title
+        cell.bookAuthor.text = bookViewModel.author
+        bookViewModel.getImage(imageURL: bookViewModel.imageURL, closure: { cell.bookCover.image = $0 })
         
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // swiftlint:disable:next line_length
+        navigationController?.pushViewController(BookDetailViewController(_viewModel.books.value[indexPath.row]), animated: true)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if _view.tableView.contentOffset.y + _view.tableView.frame.height + 200 >= _view.tableView.contentSize.height {
             _viewModel.expandBooks()
         }
+    }
+}
+
+// MARK: - View setup
+extension LibraryViewController {
+    fileprivate func setupBindings() {
+        _viewModel.books.producer.startWithResult { [unowned self] _ in
+            self._view.tableView.reloadData()
+        }
+    }
+
+    private func setupNavBar() {
+        navigationItem.title = "library.nav-bar.title".localized()
+
+        let navBar = navigationController?.navigationBar
+        navBar?.shadowImage = UIImage()
+        navBar?.setBackgroundImage(UIImage(), for: .default)
+        navBar?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white, NSAttributedStringKey.font: UIFont.systemBold().withSize(17)]  // swiftlint:disable:this line_length
+        navBar?.isTranslucent = true
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_search"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(rightButtonSelector(selector:)))    // swiftlint:disable:this line_length
+        navigationItem.rightBarButtonItem?.tintColor = UIColor.white
+
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "ic_notifications"), style: UIBarButtonItemStyle.plain, target: self, action: #selector(leftButtonSelector(selector:)))   // swiftlint:disable:this line_length
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.white
     }
 }

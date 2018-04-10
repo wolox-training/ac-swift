@@ -10,13 +10,17 @@ import Foundation
 import UIKit
 import Utils
 
-class BookViewModel {
+class BookViewModel: FetchedImageViewModelType {
     fileprivate var _book: Book
     
     init(book: Book) {
         _book = book
     }
-    
+
+    var id: Int {
+        return _book.id
+    }
+
     var title: String {
         return _book.title
     }
@@ -24,26 +28,16 @@ class BookViewModel {
     var author: String {
         return _book.author
     }
-    
-    var image: URL? {
+
+    var year: String {
+        return _book.year
+    }
+
+    var genre: String {
+        return _book.genre
+    }
+
+    var imageURL: URL? {
         return _book.image
     }
-    
-    func downloadImage(closure: @escaping (UIImage) -> Void) {
-        guard let url = _book.image else { return }
-        
-        let imageFetcher = ImageFetcher()
-        
-        imageFetcher.fetchImage(url).startWithResult { result in
-            switch result {
-            case .success(let image):
-                DispatchQueue.main.async {
-                    closure(image)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
 }

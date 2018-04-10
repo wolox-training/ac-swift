@@ -13,14 +13,20 @@ import Curry
 import Runes
 
 struct Book {
+    var id: Int
     var title: String
     var author: String
     var image: URL?
+    var year: String
+    var genre: String
     
-    init(title: String, author: String, imageURL: String?) {
+    init(id: Int, title: String, author: String, imageURL: String?, year: String, genre: String) {
+        self.id = id
         self.title = title
         self.author = author
         self.image = imageURL.map { URL(string: $0)! }
+        self.year = year
+        self.genre = genre
     }
 }
 
@@ -28,9 +34,12 @@ extension Book: Argo.Decodable {
 
     static func decode(_ json: JSON) -> Decoded<Book> {
         return curry(Book.init)
-            <^> json <| "title"
+            <^> json <| "id"
+            <*> json <| "title"
             <*> json <| "author"
             <*> json <|? "image_url"
+            <*> json <| "year"
+            <*> json <| "genre"
     }
 
 }
